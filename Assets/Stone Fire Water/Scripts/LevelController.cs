@@ -49,6 +49,11 @@ public class LevelController : MonoBehaviour
         StartCoroutine(loadLevelCor(numLevel, delayTime));
     }
 
+    public void exitGameWrapper(float delayTime = 0)
+    {
+        StartCoroutine(exitCor( delayTime));
+    }
+
     private IEnumerator loadNextLevelCor(float delayTime)
     {
         yield return new WaitForSeconds(delayTime);
@@ -85,6 +90,15 @@ public class LevelController : MonoBehaviour
         yield return new WaitForSeconds(delayTime);
         if (numLevel < SceneManager.sceneCountInBuildSettings - 1)
             SceneManager.LoadScene(numLevel);
+
+        yield break;
+    }
+
+    private IEnumerator exitCor(float delayTime)
+    {
+        yield return new WaitForSeconds(delayTime);
+        Application.Quit();
+        print("exit game");
 
         yield break;
     }

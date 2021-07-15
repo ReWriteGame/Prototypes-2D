@@ -16,18 +16,18 @@ public class Exit2D : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         //if (collision.gameObject.GetComponent<Hamster>())
-        for (int i = 0; i < trekkingObj.Length; i++)
+        foreach (GameObject obj in trekkingObj)
         {
-            if (trekkingObj[i] == collision.gameObject)
+            if (obj == collision.gameObject)
             {
-                actionsAfterGetCoin();
+                actionsAfterGetting();
                 break;
             }
         }
     }
 
 
-    public void actionsAfterGetCoin()
+    public void actionsAfterGetting()
     {
         LevelController.Instance.loadNextLevelWrapper();
         print("Exit.");

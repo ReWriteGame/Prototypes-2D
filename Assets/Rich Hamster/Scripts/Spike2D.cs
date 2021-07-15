@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [RequireComponent(typeof(Collider2D))]
-public class Coin2D : MonoBehaviour
+public class Spike2D : MonoBehaviour
 {
     [SerializeField] private GameObject[] trekkingObj;
     private Collider2D coll;
@@ -29,9 +29,8 @@ public class Coin2D : MonoBehaviour
 
     public void actionsAfterGetting()
     {
-        ScoreCounter.Instance.incScore();
-        print("Get Coin.");
-        destroyMe();
+        Finish.instance.loseGame();
+        print("Get spike.");
     }
 
 
